@@ -1,3 +1,4 @@
+Method 1:
 class Solution {
   public:
     bool isSubset(vector<int> &a, vector<int> &b) {
@@ -12,5 +13,26 @@ class Solution {
             freq[i]-=1;
         }
         return true;
+    }
+};
+
+
+Method 2:
+class Solution {
+  public:
+    bool isSubset(vector<int> &a, vector<int> &b) {
+        sort(a.begin(), a.end());
+        sort(b.begin(), b.end());
+        int i=0;
+        int j=0;
+        while(i<a.size()&&j<b.size()){
+            if(a[i]==b[j]){
+                i++;
+                j++;
+            }else{
+                i++;
+            }
+        }
+        return j==b.size();
     }
 };
