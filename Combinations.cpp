@@ -5,7 +5,8 @@ public:
             ans.push_back(curr);
             return;
         }
-        for(int num=start; num<=n; num++){
+        int remaining=k-curr.size();
+        for(int num=start; num<=n-remaining+1; num++){
             curr.push_back(num);
             backtrack(num+1, n, k, curr, ans);
             curr.pop_back();
